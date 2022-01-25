@@ -27,7 +27,7 @@ contenga un punto e una chiocciola e che age sia un numero. Se tutto è ok stamp
     $mail_convalidate_at = strpos($mail,'@');
     $mail_convalidate_dot = strpos($mail,'.');
     ?>
-    <?php if($mail_convalidate_at && $mail_convalidate_dot){ ?>
+    <?php if($mail_convalidate_at !== false && $mail_convalidate_dot !== false){ ?>
         <span>ok</span>
         <?php $convalidator_mail = 'Accesso Riuscito' ?>
     <?php }; ?>
@@ -46,7 +46,9 @@ contenga un punto e una chiocciola e che age sia un numero. Se tutto è ok stamp
 
 <?php if( ($convalidator_name === 'Accesso Riuscito') && ($convalidator_mail === 'Accesso Riuscito') && ($convalidator_age === 'Accesso Riuscito') ){?>
     <div>Accesso Riuscito</div>
-<?php };?>
+<?php } else {
+    echo 'i parametri inseriti non sono corretti';
+}?>
 
 
 
